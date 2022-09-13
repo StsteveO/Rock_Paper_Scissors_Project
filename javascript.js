@@ -1,7 +1,11 @@
 console.log ("Hello world!")
 
 // ask the user to pick rock, paper, or scissors
-        // usersChoice
+        // usersRawChoice
+// have the users choice translate to one of the three options despite how they typed it
+        // usersChoiceInterpretedKey
+// display users choice (final)
+        // usersChoiceInterpreted
 // ask computer to pick rock, paper, or scissors
         // computersRawChoice
 // interpret the computers decision
