@@ -1,0 +1,44 @@
+.rock:hover, 
+.paper:hover, 
+.scissors:hover{
+    background-color: grey;
+    color: white;
+    transform: scale(1.1);
+}
+
+.user{
+    margin-left: 5%;
+}
+
+.computer{
+    margin-right: 5%;
+}
+
+.selected{
+    background-color: rgb(70, 70, 70);
+    color: white;
+    transform: scale(1.1);
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.results-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title{
+    text-align: center;
+}
+
+.player-and-computer-titles{
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    margin-bottom: 5%;
+}
