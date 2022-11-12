@@ -1,3 +1,38 @@
+.header-title{
+    text-align: center;
+}
+
+.title-player-and-computer{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* player-instructions */
+/* block-player-and-computer */
+
+.container-player-and-computer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.player{
+    margin-left: 5%;
+}
+
+.computer{
+    margin-right: 5%;
+}
+
+button{
+    margin-bottom: 5%;
+}
+
+.button-clicked{
+    background-color: rgb(70, 70, 70);
+    color: white;
+    transform: scale(1.1);
+}
+
 .rock:hover, 
 .paper:hover, 
 .scissors:hover{
@@ -6,39 +41,9 @@
     transform: scale(1.1);
 }
 
-.user{
-    margin-left: 5%;
-}
-
-.computer{
-    margin-right: 5%;
-}
-
-.selected{
-    background-color: rgb(70, 70, 70);
-    color: white;
-    transform: scale(1.1);
-}
-
-.container{
+.container-choice{
     display: flex;
     justify-content: space-between;
 }
 
-.results-container{
-    display: flex;
-    justify-content: space-between;
-}
 
-.title{
-    text-align: center;
-}
-
-.player-and-computer-titles{
-    display: flex;
-    justify-content: space-between;
-}
-
-button{
-    margin-bottom: 5%;
-}

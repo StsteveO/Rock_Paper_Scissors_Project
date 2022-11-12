@@ -153,50 +153,24 @@
 
 console.log('Hello World!');
 
-// const rock= document.querySelector('.rock');
-// const paper= document.querySelector('.paper');
-// const scissors= document.querySelector('.scissors');
+//pick= button clicked
+//choice= what was chossen
+//result= players choice on the screen
 
-// rock.addEventListener('click', function(e){
-//         console.log(e.target.classList[0]);
-// });
-// paper.addEventListener('click', function(e){
-//         console.log(e.target.classList[0]);
-// });
-// scissors.addEventListener('click', function(e){
-//         console.log(e.target.classList[0]);
-// });
 
-// let computersRawChoice= (Math.floor(Math.random() * 3)  );
-// //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Get the computers input. 
-// function computersChoiceInterpreted() {
-//         switch (computersRawChoice) {
-//                 case 0:
-//                         return "rock";  
-//                         break;
-//                 case 1:
-//                         return "paper";
-//                         break;
-//                 case 2:
-//                         return "scissors";
-//                         break;
+window.addEventListener('click', function(e){ //When clicked, run this function.
+
+        const blockPlayerAndComputer= document.querySelector('.block-player-and-computer');
+
+
+        const playersPick= document.querySelector(`.${e.target.classList[0]}`); //ex. If player picks ROCK.
+        if(!playersPick) return;//Do nothing if player does not pick a button. 
+        playersPick.classList.add(`button-clicked`);//Changes the button clicked.
         
-//                 default:
-//                         return "error";
-//                         break;
-//         }
-// }
-
-window.addEventListener('click', function(e){
-        const playerChoice= document.querySelector(`.${e.target.classList[0]}`);
-        if(!playerChoice) return;
-        playerChoice.classList.add(`selected`);
-
-        const div= document.createElement('div');
-        div.textContent= `You chose ${e.target.classList[0]}!`;
-        const outerContainer= document.querySelector('.outer-container');
-        const playerResults= document.querySelector('.player-results');
-        playerResults.appendChild(div);
+        const playersResult= document.querySelector('.players-result');
+        const playersChoice= document.createElement('div');
+        playersChoice.textContent= `You chose ${e.target.classList[0]}!`;
+        playersResult.appendChild(playersChoice); //adds players results to page
 
         computersRawChoice= (Math.floor(Math.random() * 3)  );
 
@@ -218,11 +192,10 @@ window.addEventListener('click', function(e){
                 }
         }
 
-        const computerResults= document.querySelector('.computer-results');
-        const divComputer= document.createElement('div');
-        divComputer.textContent= `Computer chose ${computersChoiceInterpreted()}!`;
-        computerResults.appendChild(divComputer);
+        const computersResult= document.querySelector('.computers-result');
+        const computersChoice= document.createElement('div');
+        computersChoice.textContent= `Computer chose ${computersChoiceInterpreted()}!`;
+        computersResult.appendChild(computersChoice); //adds computers results to page
 
-        // console.log(computersChoiceInterpreted());
 });
 
