@@ -26,7 +26,7 @@
 //         //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^We dont want a reading for "Round 0" ?. So we skip it. 
 //         let usersRawChoice= prompt("Pick one?", "Rock, Paper, or Scissors");
 //         //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^We get users input.
-//         function usersChoiceInterpreted() {
+//         function testChoice {
 //                 if (usersRawChoice==="" || usersRawChoice=== null) {
 //                         return ("turn skipped");
 //                 } else if (usersRawChoice.toLowerCase()==="rock") {
@@ -64,47 +64,47 @@
 
 
 
-//                 if (usersChoiceInterpreted()=== "rock" && computersChoiceInterpreted()=== "rock") {
+//                 if (testChoice=== "rock" && computersChoiceInterpreted()=== "rock") {
 //                 tie= tie+1;
 //                  return `Both you and the computer choose ROCK. 
 //                  It's a TIE!`;        
-//                 } else if (usersChoiceInterpreted()=== "rock" && computersChoiceInterpreted()=== "paper") {
+//                 } else if (testChoice=== "rock" && computersChoiceInterpreted()=== "paper") {
 //                 loss= loss+1;
 //                  return `You chose ROCK, Computer chose PAPER.
 //                  You LOST!`;
-//                 }else if (usersChoiceInterpreted()=== "rock" && computersChoiceInterpreted()=== "scissors"){
+//                 }else if (testChoice=== "rock" && computersChoiceInterpreted()=== "scissors"){
 //                 wins= wins+1;
 //                  return `You chose ROCK, Computer chose SCISSORS.
 //                  You WON!`
-//                 }else if (usersChoiceInterpreted()=== "paper" && computersChoiceInterpreted()=== "rock") {
+//                 }else if (testChoice=== "paper" && computersChoiceInterpreted()=== "rock") {
 //                 wins= wins+1;
 //                  return `You chose PAPER, Computer chose ROCK.
 //                  You WON!`
-//                 }else if (usersChoiceInterpreted()=== "paper" && computersChoiceInterpreted()=== "paper"){
+//                 }else if (testChoice=== "paper" && computersChoiceInterpreted()=== "paper"){
 //                 tie= tie+1;
 //                  return `Both you and the computer chose PAPER. 
 //                  It's a TIE!`;
-//                 }else if (usersChoiceInterpreted()=== "paper" && computersChoiceInterpreted()=== "scissors") {
+//                 }else if (testChoice=== "paper" && computersChoiceInterpreted()=== "scissors") {
 //                 loss= loss+1; 
 //                  return `You chose PAPER, Computer chose SCISSORS.
 //                  You LOST!`
-//                 }else if (usersChoiceInterpreted()=== "scissors" && computersChoiceInterpreted()=== "rock"){
+//                 }else if (testChoice=== "scissors" && computersChoiceInterpreted()=== "rock"){
 //                 loss= loss+1; 
 //                  return `You chose SCISSORS, Computer chose ROCK.
 //                  You LOST!`
-//                 }else if (usersChoiceInterpreted()=== "scissors" && computersChoiceInterpreted()=== "paper") {
+//                 }else if (testChoice=== "scissors" && computersChoiceInterpreted()=== "paper") {
 //                 wins= wins+1;
 //                  return `You chose SCISSORS, Computer chose PAPER.
 //                  You WON!`
-//                 }else if (usersChoiceInterpreted()=== "scissors" && computersChoiceInterpreted()=== "scissors"){
+//                 }else if (testChoice=== "scissors" && computersChoiceInterpreted()=== "scissors"){
 //                 tie= tie+1; 
 //                  return `Both you and the computer chose SCISSORS. 
 //                  It's a TIE!`;
-//                 }else if (usersChoiceInterpreted()=== "turn skipped") {
+//                 }else if (testChoice=== "turn skipped") {
 //                 loss= loss+1;
 //                  return `You skipped your turn. 
 //                  You LOST`;
-//                 }else if (usersChoiceInterpreted()=== "not valid response"){
+//                 }else if (testChoice=== "not valid response"){
 //                 loss= loss+1;
 //                  return `Not a valid responce. 
 //                  You LOST.`
@@ -162,10 +162,13 @@ window.addEventListener('click', function(e){ //When clicked, run this function.
 
         const blockPlayerAndComputer= document.querySelector('.block-player-and-computer');
 
+        let testChoice=(e.target.classList[0]);
 
         const playersPick= document.querySelector(`.${e.target.classList[0]}`); //ex. If player picks ROCK.
         if(!playersPick) return;//Do nothing if player does not pick a button. 
-        playersPick.classList.add(`button-clicked`);//Changes the button clicked.
+        if(testChoice!== 'rock' && testChoice!== 'paper' && testChoice!== 'scissors') return;
+
+        // playersPick.classList.add(`button-clicked`);//Changes the button clicked.
         
         const playersResult= document.querySelector('.players-result');
         const playersChoice= document.createElement('div');
@@ -197,5 +200,70 @@ window.addEventListener('click', function(e){ //When clicked, run this function.
         computersChoice.textContent= `Computer chose ${computersChoiceInterpreted()}!`;
         computersResult.appendChild(computersChoice); //adds computers results to page
 
+        let wins= 0;
+        let loss= 0;
+        let tie= 0;
+
+        function playerComputerOutcomes() {
+
+
+
+                                if (testChoice=== "rock" && computersChoiceInterpreted()=== "rock") {
+                                tie= tie+1;
+                                 return `Both you and the computer choose ROCK. 
+                                 It's a TIE!`;        
+                                } else if (testChoice=== "rock" && computersChoiceInterpreted()=== "paper") {
+                                loss= loss+1;
+                                 return `You chose ROCK, Computer chose PAPER.
+                                 You LOST!`;
+                                }else if (testChoice=== "rock" && computersChoiceInterpreted()=== "scissors"){
+                                wins= wins+1;
+                                 return `You chose ROCK, Computer chose SCISSORS.
+                                 You WON!`
+                                }else if (testChoice=== "paper" && computersChoiceInterpreted()=== "rock") {
+                                wins= wins+1;
+                                 return `You chose PAPER, Computer chose ROCK.
+                                 You WON!`
+                                }else if (testChoice=== "paper" && computersChoiceInterpreted()=== "paper"){
+                                tie= tie+1;
+                                 return `Both you and the computer chose PAPER. 
+                                 It's a TIE!`;
+                                }else if (testChoice=== "paper" && computersChoiceInterpreted()=== "scissors") {
+                                loss= loss+1; 
+                                 return `You chose PAPER, Computer chose SCISSORS.
+                                 You LOST!`
+                                }else if (testChoice=== "scissors" && computersChoiceInterpreted()=== "rock"){
+                                loss= loss+1; 
+                                 return `You chose SCISSORS, Computer chose ROCK.
+                                 You LOST!`
+                                }else if (testChoice=== "scissors" && computersChoiceInterpreted()=== "paper") {
+                                wins= wins+1;
+                                 return `You chose SCISSORS, Computer chose PAPER.
+                                 You WON!`
+                                }else if (testChoice=== "scissors" && computersChoiceInterpreted()=== "scissors"){
+                                tie= tie+1; 
+                                 return `Both you and the computer chose SCISSORS. 
+                                 It's a TIE!`;
+                                }else if (testChoice=== "turn skipped") {
+                                loss= loss+1;
+                                 return `You skipped your turn. 
+                                 You LOST`;
+                                }else if (testChoice=== "not valid response"){
+                                loss= loss+1;
+                                 return `Not a valid responce. 
+                                 You LOST.`
+                                }else{
+                                 return `Error`
+                                }
+                         }
+
+                         const roundResults= document.querySelector('.round-results');
+                         const roundResult= document.createElement('div');
+                         roundResult.textContent=(`${playerComputerOutcomes()}`);
+                         roundResults.appendChild(roundResult);
+
+                         console.log(`wins=${wins}`)
+                        
 });
+
 
