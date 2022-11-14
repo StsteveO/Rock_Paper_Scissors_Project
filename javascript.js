@@ -153,6 +153,11 @@
 
 console.log('Hello World!');
 
+        let wins= 0;
+        let loss= 0;
+        let tie= 0;
+        let round= 1;
+
 //pick= button clicked
 //choice= what was chossen
 //result= players choice on the screen
@@ -200,9 +205,10 @@ window.addEventListener('click', function(e){ //When clicked, run this function.
         computersChoice.textContent= `Computer chose ${computersChoiceInterpreted()}!`;
         computersResult.appendChild(computersChoice); //adds computers results to page
 
-        let wins= 0;
-        let loss= 0;
-        let tie= 0;
+        // let wins= 0;
+        // let loss= 0;
+        // let tie= 0;
+        // let round= 1;
 
         function playerComputerOutcomes() {
 
@@ -210,46 +216,57 @@ window.addEventListener('click', function(e){ //When clicked, run this function.
 
                                 if (testChoice=== "rock" && computersChoiceInterpreted()=== "rock") {
                                 tie= tie+1;
+                                round=round+1;
                                  return `Both you and the computer choose ROCK. 
                                  It's a TIE!`;        
                                 } else if (testChoice=== "rock" && computersChoiceInterpreted()=== "paper") {
                                 loss= loss+1;
+                                round=round+1;
                                  return `You chose ROCK, Computer chose PAPER.
                                  You LOST!`;
                                 }else if (testChoice=== "rock" && computersChoiceInterpreted()=== "scissors"){
                                 wins= wins+1;
+                                round=round+1;
                                  return `You chose ROCK, Computer chose SCISSORS.
                                  You WON!`
                                 }else if (testChoice=== "paper" && computersChoiceInterpreted()=== "rock") {
                                 wins= wins+1;
+                                round=round+1;
                                  return `You chose PAPER, Computer chose ROCK.
                                  You WON!`
                                 }else if (testChoice=== "paper" && computersChoiceInterpreted()=== "paper"){
                                 tie= tie+1;
+                                round=round+1;
                                  return `Both you and the computer chose PAPER. 
                                  It's a TIE!`;
                                 }else if (testChoice=== "paper" && computersChoiceInterpreted()=== "scissors") {
                                 loss= loss+1; 
+                                round=round+1;
                                  return `You chose PAPER, Computer chose SCISSORS.
                                  You LOST!`
                                 }else if (testChoice=== "scissors" && computersChoiceInterpreted()=== "rock"){
                                 loss= loss+1; 
+                                round=round+1;
                                  return `You chose SCISSORS, Computer chose ROCK.
                                  You LOST!`
                                 }else if (testChoice=== "scissors" && computersChoiceInterpreted()=== "paper") {
                                 wins= wins+1;
+                                round=round+1;
                                  return `You chose SCISSORS, Computer chose PAPER.
                                  You WON!`
                                 }else if (testChoice=== "scissors" && computersChoiceInterpreted()=== "scissors"){
                                 tie= tie+1; 
+                                round=round+1;
                                  return `Both you and the computer chose SCISSORS. 
                                  It's a TIE!`;
                                 }else if (testChoice=== "turn skipped") {
                                 loss= loss+1;
+                                round=round+1;
                                  return `You skipped your turn. 
                                  You LOST`;
                                 }else if (testChoice=== "not valid response"){
                                 loss= loss+1;
+                                round=round+1;
                                  return `Not a valid responce. 
                                  You LOST.`
                                 }else{
@@ -259,11 +276,27 @@ window.addEventListener('click', function(e){ //When clicked, run this function.
 
                          const roundResults= document.querySelector('.round-results');
                          const roundResult= document.createElement('div');
-                         roundResult.textContent=(`${playerComputerOutcomes()}`);
+                         roundResult.textContent=(`Round ${round}) ${playerComputerOutcomes()}`);
                          roundResults.appendChild(roundResult);
 
-                         console.log(`wins=${wins}`)
-                        
-});
+                        // const winsCounter=document.querySelector('.wins');
+                        // const winsCurrent= document.createElement('div')
+                        // winsCurrent.textContent=(`${wins}`);
+                        // winsCounter.appendChild(winsCurrent);
 
+                        const winsCounter=document.querySelector('.wins');
+                        const winsCurrent=document.querySelector('.wins-current');
+                        winsCurrent.textContent=(`${wins}`);
+
+                        const lossesCounter=document.querySelector('.losses');
+                        const lossesCurrent=document.querySelector('.losses-current');
+                        lossesCurrent.textContent=(`${loss}`);
+
+                        const tiesCounter=document.querySelector('.ties');
+                        const tiesCurrent=document.querySelector('.ties-current');
+                        tiesCurrent.textContent=(`${tie}`);
+
+
+
+});
 

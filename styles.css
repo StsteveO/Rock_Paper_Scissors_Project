@@ -1,5 +1,4 @@
-.header-title, 
-.outcomes{
+.header-title{
     text-align: center;
 }
 
@@ -45,6 +44,10 @@ button{
 .container-choice{
     display: flex;
     justify-content: space-between;
+}
+
+.scoreboard{
+    display: flex;
 }
 
 
