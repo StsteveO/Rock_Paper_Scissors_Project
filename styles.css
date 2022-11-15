@@ -25,6 +25,7 @@
 
 button{
     margin-bottom: 5%;
+    padding: 4% 8%;
 }
 
 .button-clicked{
@@ -35,7 +36,8 @@ button{
 
 .rock:hover, 
 .paper:hover, 
-.scissors:hover{
+.scissors:hover, 
+.new-game:hover{
     background-color: grey;
     color: white;
     transform: scale(1.1);
@@ -48,6 +50,32 @@ button{
 
 .scoreboard{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 2%; */
 }
 
+.overall-wins, 
+.overall-losses, 
+.overall-ties{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid black 2px;
+    padding: 2%;
+    margin-top: 5%;
+}
 
+.new-game{
+    padding: 1% 2%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.final-results{
+    margin-top: 5%;
+    margin-left: 2%;
+    font-size: larger;
+    font-weight: bold;
+}

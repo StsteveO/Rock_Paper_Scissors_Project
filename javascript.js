@@ -296,7 +296,43 @@ window.addEventListener('click', function(e){ //When clicked, run this function.
                         const tiesCurrent=document.querySelector('.ties-current');
                         tiesCurrent.textContent=(`${tie}`);
 
+                        const playerRock= document.querySelector('.rock');
+                        const playerPaper= document.querySelector('.paper');
+                        const playerScissors= document.querySelector('.scissors');
 
+
+                        if(round===6){
+                                playerRock.disabled=true;
+                                playerPaper.disabled=true;
+                                playerScissors.disabled=true;
+                        }
+
+                        function endGameResults(){        
+                                if (round===6) {
+                                        if (tie===5) {
+                                                return (`Overall it's a Tie between you, and the computer.`);
+                                        } else if(wins>loss) {
+                                                return (`Overall you are the WINNER!
+                                        CONGRATULATIONS!`);
+                                        } else if (wins<loss){
+                                                return (`Overall you lost. The computer is the winner.
+                                        Better luck next time.`);
+                                        } else if (wins===loss){
+                                                return (`Overall it's a Tie between you, and the computer.`);
+                                        } else if (undefined){
+                                                return;
+                                        } else {
+                                                return (`error`);
+                                        }
+                                        }
+                        }
+
+                        if (round===6){
+                        const finalResults= document.querySelector('.final-results');
+                        finalResults.textContent=(`${endGameResults()}`);
+                        }
 
 });
+
+
 

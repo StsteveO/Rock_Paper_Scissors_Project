@@ -17,14 +17,14 @@
         <h2>Computer</h2>
     </div>
 </div>
-<h3 class="player-instructions">Please pick one.</h3>
+<h3 class="player-instructions">Please pick one. Best of 5 rounds. Good Luck!</h3>
 <br>
 <div class= block-player-and-computer>
     <div class="container-player-and-computer">
         <div class= player>
-            <button class="rock" >ROCK</button>
-            <br><button class="paper" >PAPER</button>
-            <br><button class="scissors" >SCISSORS</button>
+            <button class="rock" title="This defeats scissors">ROCK</button>
+            <br><button class="paper" title="This defeats rock">PAPER</button>
+            <br><button class="scissors" title="This defeats paper">SCISSORS</button>
         </div>
         
         <div class= computer>
@@ -44,19 +44,31 @@
 </div>
 <div class="scoreboard">
     <div class="overall-wins">
-        <div class="wins">Wins</div>
-        <div class="wins-current"></div>
+       <!-- <div class="wins-column"> -->
+         <div class="wins">Wins</div>
+         <div class="wins-current"></div>
+       <!-- </div> -->
     </div>
+
     <div class="overall-losses">
-        <div class="losses">Losses</div>
-        <div class="losses-current"></div>
+        <!-- <div class="lossess-column"> -->
+            <div class="losses">Losses</div>
+            <div class="losses-current"></div>
+        <!-- </div> -->
     </div>
+
     <div class="overall-ties">
+        <!-- <div class="ties-column"> -->
             <div class="ties">Ties</div>
             <div class="ties-current"></div>
+        <!-- </div> -->
     </div>
 </div>
 
+<div class="final-results">
+</div>
+
+<button onclick='window.location.reload()' class="new-game">New Game</button>
 
     <script src="javascript.js"></script>
 </body>
